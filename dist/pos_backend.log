@@ -1,0 +1,739 @@
+2025-08-16 20:33:13 - INFO - Backend: Starting one-time database setup.
+2025-08-16 20:33:13 - INFO - Connected to database: pos_database.db
+2025-08-16 20:33:13 - INFO - Database file did not exist, attempting to create tables.
+2025-08-16 20:33:13 - INFO - Products table checked/created successfully.
+2025-08-16 20:33:13 - INFO - Sales table checked/created successfully.
+2025-08-16 20:33:13 - INFO - Sale_items table checked/created successfully.
+2025-08-16 20:33:13 - INFO - Database schema committed.
+2025-08-16 20:33:13 - INFO - Products table checked/created successfully.
+2025-08-16 20:33:13 - INFO - Sales table checked/created successfully.
+2025-08-16 20:33:13 - INFO - Sale_items table checked/created successfully.
+2025-08-16 20:33:13 - INFO - Database schema committed.
+2025-08-16 20:33:13 - INFO - Users table checked/created successfully.
+2025-08-16 20:33:13 - INFO - No users found, adding default admin user 'admin'.
+2025-08-16 20:33:13 - INFO - User 'admin' (ADMIN001) added successfully with role admin.
+2025-08-16 20:33:13 - INFO - Default admin user 'admin' created (password: 'adminpass').
+2025-08-16 20:33:13 - INFO - No products found, seeding default products.
+2025-08-16 20:33:13 - INFO - Product 'Coca-Cola (500ml)' (ID: P001) added successfully.
+2025-08-16 20:33:13 - INFO - Product 'Dairyland Milk (500ml)' (ID: P002) added successfully.
+2025-08-16 20:33:13 - INFO - Product 'Broadways Bread (400g)' (ID: P003) added successfully.
+2025-08-16 20:33:13 - INFO - Product 'Blue Band Margarine (250g)' (ID: P004) added successfully.
+2025-08-16 20:33:13 - INFO - Product 'Kimbo Cooking Oil (1L)' (ID: P005) added successfully.
+2025-08-16 20:33:13 - INFO - Product 'Omo Washing Powder (500g)' (ID: P006) added successfully.
+2025-08-16 20:33:13 - INFO - Product 'Colgate Toothpaste (100g)' (ID: P007) added successfully.
+2025-08-16 20:33:13 - INFO - Product 'Geisha Soap' (ID: P008) added successfully.
+2025-08-16 20:33:13 - INFO - Product 'Salt (1kg)' (ID: P009) added successfully.
+2025-08-16 20:33:14 - INFO - Product 'Sugar (1kg)' (ID: P010) added successfully.
+2025-08-16 20:33:14 - INFO - Product 'Tea Leaves (250g)' (ID: P011) added successfully.
+2025-08-16 20:33:14 - INFO - Product 'Unga (2kg)' (ID: P012) added successfully.
+2025-08-16 20:33:14 - INFO - Product 'Rice (1kg)' (ID: P013) added successfully.
+2025-08-16 20:33:14 - INFO - Product 'Baraka Cooking Oil (2L)' (ID: P014) added successfully.
+2025-08-16 20:33:14 - INFO - Product 'Exe Flour (1kg)' (ID: P015) added successfully.
+2025-08-16 20:33:14 - INFO - 15 default products seeding attempt completed.
+2025-08-16 20:33:14 - INFO - Database connection closed.
+2025-08-16 20:33:14 - INFO - Backend: One-time database setup completed successfully.
+2025-08-16 20:33:14 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.5.50.148:5000
+2025-08-16 20:33:14 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-16 20:33:14 - INFO -  * Restarting with stat
+2025-08-16 20:33:15 - INFO - Backend: Starting one-time database setup.
+2025-08-16 20:33:15 - INFO - Connected to database: pos_database.db
+2025-08-16 20:33:15 - INFO - Products table checked/created successfully.
+2025-08-16 20:33:15 - INFO - Sales table checked/created successfully.
+2025-08-16 20:33:15 - INFO - Sale_items table checked/created successfully.
+2025-08-16 20:33:15 - INFO - Database schema committed.
+2025-08-16 20:33:15 - INFO - Users table checked/created successfully.
+2025-08-16 20:33:15 - INFO - Products already exist, skipping default seeding.
+2025-08-16 20:33:15 - INFO - Database connection closed.
+2025-08-16 20:33:15 - INFO - Backend: One-time database setup completed successfully.
+2025-08-16 20:33:15 - WARNING -  * Debugger is active!
+2025-08-16 20:33:15 - INFO -  * Debugger PIN: 129-948-796
+2025-08-16 20:33:58 - INFO - Connected to database: pos_database.db
+2025-08-16 20:33:58 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:33:58 - INFO - Database connection closed.
+2025-08-16 20:33:58 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:33:58 - INFO - 127.0.0.1 - - [16/Aug/2025 20:33:58] "OPTIONS /login HTTP/1.1" 200 -
+2025-08-16 20:33:58 - INFO - Connected to database: pos_database.db
+2025-08-16 20:33:58 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:33:58 - WARNING - Failed login attempt for username: admin.
+2025-08-16 20:33:58 - WARNING - Login failed for username: admin.
+2025-08-16 20:33:58 - INFO - Database connection closed.
+2025-08-16 20:33:58 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:33:58 - INFO - 127.0.0.1 - - [16/Aug/2025 20:33:58] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-08-16 20:34:08 - INFO - Connected to database: pos_database.db
+2025-08-16 20:34:08 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:34:08 - INFO - Database connection closed.
+2025-08-16 20:34:08 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:34:08 - INFO - 127.0.0.1 - - [16/Aug/2025 20:34:08] "OPTIONS /login HTTP/1.1" 200 -
+2025-08-16 20:34:08 - INFO - Connected to database: pos_database.db
+2025-08-16 20:34:08 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:34:08 - INFO - User 'admin' logged in successfully (Role: admin).
+2025-08-16 20:34:08 - INFO - User 'admin' logged in successfully.
+2025-08-16 20:34:08 - INFO - Database connection closed.
+2025-08-16 20:34:08 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:34:08 - INFO - 127.0.0.1 - - [16/Aug/2025 20:34:08] "POST /login HTTP/1.1" 200 -
+2025-08-16 20:34:09 - INFO - Connected to database: pos_database.db
+2025-08-16 20:34:09 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:34:09 - INFO - Retrieved 15 products.
+2025-08-16 20:34:09 - INFO - Database connection closed.
+2025-08-16 20:34:09 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:34:09 - INFO - 127.0.0.1 - - [16/Aug/2025 20:34:09] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:46:41 - INFO - Connected to database: pos_database.db
+2025-08-16 20:46:41 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:46:41 - INFO - Database connection closed.
+2025-08-16 20:46:41 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:46:41 - INFO - 127.0.0.1 - - [16/Aug/2025 20:46:41] "OPTIONS /login HTTP/1.1" 200 -
+2025-08-16 20:46:41 - INFO - Connected to database: pos_database.db
+2025-08-16 20:46:41 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:46:41 - INFO - User 'admin' logged in successfully (Role: admin).
+2025-08-16 20:46:41 - INFO - User 'admin' logged in successfully.
+2025-08-16 20:46:41 - INFO - Database connection closed.
+2025-08-16 20:46:41 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:46:41 - INFO - 127.0.0.1 - - [16/Aug/2025 20:46:41] "POST /login HTTP/1.1" 200 -
+2025-08-16 20:46:41 - INFO - Connected to database: pos_database.db
+2025-08-16 20:46:41 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:46:41 - INFO - Retrieved 15 products.
+2025-08-16 20:46:41 - INFO - Database connection closed.
+2025-08-16 20:46:41 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:46:41 - INFO - 127.0.0.1 - - [16/Aug/2025 20:46:41] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:47:00 - INFO - Connected to database: pos_database.db
+2025-08-16 20:47:00 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:47:00 - INFO - Retrieved 15 products.
+2025-08-16 20:47:00 - INFO - Database connection closed.
+2025-08-16 20:47:00 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:47:00 - INFO - 127.0.0.1 - - [16/Aug/2025 20:47:00] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:47:58 - INFO - Connected to database: pos_database.db
+2025-08-16 20:47:58 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:47:58 - INFO - Database connection closed.
+2025-08-16 20:47:58 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:47:58 - INFO - 127.0.0.1 - - [16/Aug/2025 20:47:58] "OPTIONS /sales/checkout HTTP/1.1" 200 -
+2025-08-16 20:47:58 - INFO - Connected to database: pos_database.db
+2025-08-16 20:47:58 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:47:58 - INFO - Backend: Starting checkout transaction.
+2025-08-16 20:47:58 - INFO - Decreased stock for product P014 by 2.
+2025-08-16 20:47:58 - INFO - Decreased stock for product P004 by 1.
+2025-08-16 20:47:58 - INFO - Decreased stock for product P003 by 1.
+2025-08-16 20:47:58 - INFO - Decreased stock for product P001 by 1.
+2025-08-16 20:47:58 - INFO - Sale recorded (ID: 1, Total: 1635.0, Method: Cash). Awaiting commit.
+2025-08-16 20:47:58 - INFO - Backend: Main sale record created with Sale ID: 1
+2025-08-16 20:47:58 - INFO - Sale item recorded for Sale ID 1: Product Baraka Cooking Oil (2L), Quantity 2.
+2025-08-16 20:47:58 - INFO - Backend: Sale item recorded: Sale ID 1, Product ID P014, Qty 2
+2025-08-16 20:47:58 - INFO - Sale item recorded for Sale ID 1: Product Blue Band Margarine (250g), Quantity 1.
+2025-08-16 20:47:58 - INFO - Backend: Sale item recorded: Sale ID 1, Product ID P004, Qty 1
+2025-08-16 20:47:58 - INFO - Sale item recorded for Sale ID 1: Product Broadways Bread (400g), Quantity 1.
+2025-08-16 20:47:58 - INFO - Backend: Sale item recorded: Sale ID 1, Product ID P003, Qty 1
+2025-08-16 20:47:58 - INFO - Sale item recorded for Sale ID 1: Product Coca-Cola (500ml), Quantity 1.
+2025-08-16 20:47:58 - INFO - Backend: Sale item recorded: Sale ID 1, Product ID P001, Qty 1
+2025-08-16 20:47:58 - INFO - Backend: Checkout transaction committed successfully for Sale ID: 1
+2025-08-16 20:47:58 - INFO - Database connection closed.
+2025-08-16 20:47:58 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:47:58 - INFO - 127.0.0.1 - - [16/Aug/2025 20:47:58] "POST /sales/checkout HTTP/1.1" 200 -
+2025-08-16 20:47:58 - INFO - Connected to database: pos_database.db
+2025-08-16 20:47:58 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:47:58 - INFO - Retrieved 15 products.
+2025-08-16 20:47:58 - INFO - Database connection closed.
+2025-08-16 20:47:58 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:47:58 - INFO - 127.0.0.1 - - [16/Aug/2025 20:47:58] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:48:35 - INFO - Connected to database: pos_database.db
+2025-08-16 20:48:35 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:48:35 - INFO - Generated sales history for 2025-08-09 to 2025-08-16. Found 1 sales.
+2025-08-16 20:48:35 - INFO - Database connection closed.
+2025-08-16 20:48:35 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:48:35 - INFO - 127.0.0.1 - - [16/Aug/2025 20:48:35] "GET /reports/sales_history?start_date=2025-08-09&end_date=2025-08-16 HTTP/1.1" 200 -
+2025-08-16 20:48:39 - INFO - Connected to database: pos_database.db
+2025-08-16 20:48:39 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:48:39 - INFO - Retrieved details for Sale ID 1.
+2025-08-16 20:48:39 - INFO - Retrieved 4 sale items for Sale ID 1.
+2025-08-16 20:48:39 - INFO - Database connection closed.
+2025-08-16 20:48:39 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:48:39 - INFO - 127.0.0.1 - - [16/Aug/2025 20:48:39] "GET /reports/sale_items/1 HTTP/1.1" 200 -
+2025-08-16 20:48:54 - INFO - Connected to database: pos_database.db
+2025-08-16 20:48:54 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:48:54 - INFO - Generated top selling products report for 2025-07-17 to 2025-08-16 with limit 10.
+2025-08-16 20:48:54 - INFO - Database connection closed.
+2025-08-16 20:48:54 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:48:54 - INFO - 127.0.0.1 - - [16/Aug/2025 20:48:54] "GET /reports/top_products?limit=10&start_date=2025-07-17&end_date=2025-08-16 HTTP/1.1" 200 -
+2025-08-16 20:48:59 - INFO - Connected to database: pos_database.db
+2025-08-16 20:48:59 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:48:59 - INFO - Retrieved daily sales summary for 2025-08-16: Total: 1635.0, Count: 1
+2025-08-16 20:48:59 - INFO - Generated daily sales report for 2025-08-16. Total: 1635.0, Count: 1.
+2025-08-16 20:48:59 - INFO - Database connection closed.
+2025-08-16 20:48:59 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:48:59 - INFO - 127.0.0.1 - - [16/Aug/2025 20:48:59] "GET /reports/daily_sales?date=2025-08-16 HTTP/1.1" 200 -
+2025-08-16 20:49:05 - INFO - Connected to database: pos_database.db
+2025-08-16 20:49:05 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:49:05 - INFO - Retrieved 15 products.
+2025-08-16 20:49:05 - INFO - Database connection closed.
+2025-08-16 20:49:05 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:49:05 - INFO - 127.0.0.1 - - [16/Aug/2025 20:49:05] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:50:50 - INFO - Connected to database: pos_database.db
+2025-08-16 20:50:50 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:50:50 - INFO - Database connection closed.
+2025-08-16 20:50:50 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:50:50 - INFO - 127.0.0.1 - - [16/Aug/2025 20:50:50] "OPTIONS /login HTTP/1.1" 200 -
+2025-08-16 20:50:50 - INFO - Connected to database: pos_database.db
+2025-08-16 20:50:50 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:50:50 - INFO - User 'admin' logged in successfully (Role: admin).
+2025-08-16 20:50:50 - INFO - User 'admin' logged in successfully.
+2025-08-16 20:50:50 - INFO - Database connection closed.
+2025-08-16 20:50:50 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:50:50 - INFO - 127.0.0.1 - - [16/Aug/2025 20:50:50] "POST /login HTTP/1.1" 200 -
+2025-08-16 20:50:50 - INFO - Connected to database: pos_database.db
+2025-08-16 20:50:50 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:50:50 - INFO - Retrieved 15 products.
+2025-08-16 20:50:50 - INFO - Database connection closed.
+2025-08-16 20:50:50 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:50:50 - INFO - 127.0.0.1 - - [16/Aug/2025 20:50:50] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:54:27 - INFO - Backend: Starting one-time database setup.
+2025-08-16 20:54:27 - INFO - Connected to database: pos_database.db
+2025-08-16 20:54:27 - INFO - Products table checked/created successfully.
+2025-08-16 20:54:27 - INFO - Sales table checked/created successfully.
+2025-08-16 20:54:27 - INFO - Sale_items table checked/created successfully.
+2025-08-16 20:54:27 - INFO - Database schema committed.
+2025-08-16 20:54:27 - INFO - Users table checked/created successfully.
+2025-08-16 20:54:27 - INFO - Products already exist, skipping default seeding.
+2025-08-16 20:54:27 - INFO - Database connection closed.
+2025-08-16 20:54:27 - INFO - Backend: One-time database setup completed successfully.
+2025-08-16 20:54:27 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.5.50.148:5000
+2025-08-16 20:54:27 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-16 20:54:27 - INFO -  * Restarting with stat
+2025-08-16 20:54:28 - INFO - Backend: Starting one-time database setup.
+2025-08-16 20:54:28 - INFO - Connected to database: pos_database.db
+2025-08-16 20:54:28 - INFO - Products table checked/created successfully.
+2025-08-16 20:54:28 - INFO - Sales table checked/created successfully.
+2025-08-16 20:54:28 - INFO - Sale_items table checked/created successfully.
+2025-08-16 20:54:28 - INFO - Database schema committed.
+2025-08-16 20:54:28 - INFO - Users table checked/created successfully.
+2025-08-16 20:54:28 - INFO - Products already exist, skipping default seeding.
+2025-08-16 20:54:28 - INFO - Database connection closed.
+2025-08-16 20:54:28 - INFO - Backend: One-time database setup completed successfully.
+2025-08-16 20:54:28 - WARNING -  * Debugger is active!
+2025-08-16 20:54:28 - INFO -  * Debugger PIN: 115-787-579
+2025-08-16 20:55:12 - INFO - Connected to database: pos_database.db
+2025-08-16 20:55:12 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:55:12 - INFO - Generated sales history for 2025-08-09 to 2025-08-16. Found 1 sales.
+2025-08-16 20:55:12 - INFO - Database connection closed.
+2025-08-16 20:55:12 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:55:12 - INFO - 127.0.0.1 - - [16/Aug/2025 20:55:12] "GET /reports/sales_history?start_date=2025-08-09&end_date=2025-08-16 HTTP/1.1" 200 -
+2025-08-16 20:55:18 - INFO - Connected to database: pos_database.db
+2025-08-16 20:55:18 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:55:18 - INFO - Generated top selling products report for 2025-07-17 to 2025-08-16 with limit 10.
+2025-08-16 20:55:18 - INFO - Database connection closed.
+2025-08-16 20:55:18 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:55:18 - INFO - 127.0.0.1 - - [16/Aug/2025 20:55:18] "GET /reports/top_products?limit=10&start_date=2025-07-17&end_date=2025-08-16 HTTP/1.1" 200 -
+2025-08-16 20:55:23 - INFO - Connected to database: pos_database.db
+2025-08-16 20:55:23 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:55:23 - INFO - Retrieved daily sales summary for 2025-08-16: Total: 1635.0, Count: 1
+2025-08-16 20:55:23 - INFO - Generated daily sales report for 2025-08-16. Total: 1635.0, Count: 1.
+2025-08-16 20:55:23 - INFO - Database connection closed.
+2025-08-16 20:55:23 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:55:23 - INFO - 127.0.0.1 - - [16/Aug/2025 20:55:23] "GET /reports/daily_sales?date=2025-08-16 HTTP/1.1" 200 -
+2025-08-16 20:55:26 - INFO - Connected to database: pos_database.db
+2025-08-16 20:55:26 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:55:26 - INFO - Retrieved 15 products.
+2025-08-16 20:55:26 - INFO - Database connection closed.
+2025-08-16 20:55:26 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:55:26 - INFO - 127.0.0.1 - - [16/Aug/2025 20:55:26] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:56:50 - INFO - Connected to database: pos_database.db
+2025-08-16 20:56:50 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:56:50 - INFO - Database connection closed.
+2025-08-16 20:56:50 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:56:50 - INFO - 127.0.0.1 - - [16/Aug/2025 20:56:50] "OPTIONS /sales/checkout HTTP/1.1" 200 -
+2025-08-16 20:56:50 - INFO - Connected to database: pos_database.db
+2025-08-16 20:56:50 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:56:50 - INFO - Backend: Starting checkout transaction.
+2025-08-16 20:56:50 - INFO - Decreased stock for product P003 by 3.
+2025-08-16 20:56:50 - INFO - Decreased stock for product P001 by 2.
+2025-08-16 20:56:50 - INFO - Decreased stock for product P004 by 2.
+2025-08-16 20:56:50 - INFO - Decreased stock for product P014 by 2.
+2025-08-16 20:56:50 - INFO - Decreased stock for product P008 by 2.
+2025-08-16 20:56:50 - INFO - Sale recorded (ID: 2, Total: 2135.0, Method: Cash). Awaiting commit.
+2025-08-16 20:56:50 - INFO - Backend: Main sale record created with Sale ID: 2
+2025-08-16 20:56:50 - INFO - Sale item recorded for Sale ID 2: Product Broadways Bread (400g), Quantity 3.
+2025-08-16 20:56:50 - INFO - Backend: Sale item recorded: Sale ID 2, Product ID P003, Qty 3
+2025-08-16 20:56:50 - INFO - Sale item recorded for Sale ID 2: Product Coca-Cola (500ml), Quantity 2.
+2025-08-16 20:56:50 - INFO - Backend: Sale item recorded: Sale ID 2, Product ID P001, Qty 2
+2025-08-16 20:56:50 - INFO - Sale item recorded for Sale ID 2: Product Blue Band Margarine (250g), Quantity 2.
+2025-08-16 20:56:50 - INFO - Backend: Sale item recorded: Sale ID 2, Product ID P004, Qty 2
+2025-08-16 20:56:50 - INFO - Sale item recorded for Sale ID 2: Product Baraka Cooking Oil (2L), Quantity 2.
+2025-08-16 20:56:50 - INFO - Backend: Sale item recorded: Sale ID 2, Product ID P014, Qty 2
+2025-08-16 20:56:50 - INFO - Sale item recorded for Sale ID 2: Product Geisha Soap, Quantity 2.
+2025-08-16 20:56:50 - INFO - Backend: Sale item recorded: Sale ID 2, Product ID P008, Qty 2
+2025-08-16 20:56:50 - INFO - Backend: Checkout transaction committed successfully for Sale ID: 2
+2025-08-16 20:56:50 - INFO - Database connection closed.
+2025-08-16 20:56:50 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:56:50 - INFO - 127.0.0.1 - - [16/Aug/2025 20:56:50] "POST /sales/checkout HTTP/1.1" 200 -
+2025-08-16 20:56:50 - INFO - Connected to database: pos_database.db
+2025-08-16 20:56:50 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:56:50 - INFO - Retrieved 15 products.
+2025-08-16 20:56:50 - INFO - Database connection closed.
+2025-08-16 20:56:50 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:56:50 - INFO - 127.0.0.1 - - [16/Aug/2025 20:56:50] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:57:05 - INFO - Connected to database: pos_database.db
+2025-08-16 20:57:05 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:57:05 - INFO - Generated sales history for 2025-08-09 to 2025-08-16. Found 2 sales.
+2025-08-16 20:57:05 - INFO - Database connection closed.
+2025-08-16 20:57:05 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:57:05 - INFO - 127.0.0.1 - - [16/Aug/2025 20:57:05] "GET /reports/sales_history?start_date=2025-08-09&end_date=2025-08-16 HTTP/1.1" 200 -
+2025-08-16 20:57:34 - INFO - Connected to database: pos_database.db
+2025-08-16 20:57:34 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:57:34 - INFO - Database connection closed.
+2025-08-16 20:57:34 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:57:34 - INFO - 127.0.0.1 - - [16/Aug/2025 20:57:34] "OPTIONS /login HTTP/1.1" 200 -
+2025-08-16 20:57:34 - INFO - Connected to database: pos_database.db
+2025-08-16 20:57:34 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:57:34 - INFO - User 'admin' logged in successfully (Role: admin).
+2025-08-16 20:57:34 - INFO - User 'admin' logged in successfully.
+2025-08-16 20:57:34 - INFO - Database connection closed.
+2025-08-16 20:57:34 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:57:34 - INFO - 127.0.0.1 - - [16/Aug/2025 20:57:34] "POST /login HTTP/1.1" 200 -
+2025-08-16 20:57:34 - INFO - Connected to database: pos_database.db
+2025-08-16 20:57:34 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:57:34 - INFO - Retrieved 15 products.
+2025-08-16 20:57:34 - INFO - Database connection closed.
+2025-08-16 20:57:34 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:57:34 - INFO - 127.0.0.1 - - [16/Aug/2025 20:57:34] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:58:00 - INFO - Connected to database: pos_database.db
+2025-08-16 20:58:00 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:58:00 - INFO - Database connection closed.
+2025-08-16 20:58:00 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:58:00 - INFO - 127.0.0.1 - - [16/Aug/2025 20:58:00] "OPTIONS /sales/checkout HTTP/1.1" 200 -
+2025-08-16 20:58:00 - INFO - Connected to database: pos_database.db
+2025-08-16 20:58:00 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:58:00 - INFO - Backend: Starting checkout transaction.
+2025-08-16 20:58:00 - INFO - Decreased stock for product P012 by 3.
+2025-08-16 20:58:00 - INFO - Decreased stock for product P011 by 2.
+2025-08-16 20:58:00 - INFO - Decreased stock for product P010 by 3.
+2025-08-16 20:58:00 - INFO - Decreased stock for product P009 by 2.
+2025-08-16 20:58:00 - INFO - Sale recorded (ID: 3, Total: 1590.0, Method: Cash). Awaiting commit.
+2025-08-16 20:58:00 - INFO - Backend: Main sale record created with Sale ID: 3
+2025-08-16 20:58:00 - INFO - Sale item recorded for Sale ID 3: Product Unga (2kg), Quantity 3.
+2025-08-16 20:58:00 - INFO - Backend: Sale item recorded: Sale ID 3, Product ID P012, Qty 3
+2025-08-16 20:58:00 - INFO - Sale item recorded for Sale ID 3: Product Tea Leaves (250g), Quantity 2.
+2025-08-16 20:58:00 - INFO - Backend: Sale item recorded: Sale ID 3, Product ID P011, Qty 2
+2025-08-16 20:58:00 - INFO - Sale item recorded for Sale ID 3: Product Sugar (1kg), Quantity 3.
+2025-08-16 20:58:00 - INFO - Backend: Sale item recorded: Sale ID 3, Product ID P010, Qty 3
+2025-08-16 20:58:00 - INFO - Sale item recorded for Sale ID 3: Product Salt (1kg), Quantity 2.
+2025-08-16 20:58:00 - INFO - Backend: Sale item recorded: Sale ID 3, Product ID P009, Qty 2
+2025-08-16 20:58:00 - INFO - Backend: Checkout transaction committed successfully for Sale ID: 3
+2025-08-16 20:58:00 - INFO - Database connection closed.
+2025-08-16 20:58:00 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:58:00 - INFO - 127.0.0.1 - - [16/Aug/2025 20:58:00] "POST /sales/checkout HTTP/1.1" 200 -
+2025-08-16 20:58:00 - INFO - Connected to database: pos_database.db
+2025-08-16 20:58:00 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:58:00 - INFO - Retrieved 15 products.
+2025-08-16 20:58:00 - INFO - Database connection closed.
+2025-08-16 20:58:00 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:58:00 - INFO - 127.0.0.1 - - [16/Aug/2025 20:58:00] "GET /products HTTP/1.1" 200 -
+2025-08-16 20:58:32 - INFO - Connected to database: pos_database.db
+2025-08-16 20:58:32 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:58:32 - INFO - Generated top selling products report for 2025-07-17 to 2025-08-16 with limit 10.
+2025-08-16 20:58:32 - INFO - Database connection closed.
+2025-08-16 20:58:32 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:58:32 - INFO - 127.0.0.1 - - [16/Aug/2025 20:58:32] "GET /reports/top_products?limit=10&start_date=2025-07-17&end_date=2025-08-16 HTTP/1.1" 200 -
+2025-08-16 20:58:37 - INFO - Connected to database: pos_database.db
+2025-08-16 20:58:37 - INFO - Backend: New DBManager created for current request context.
+2025-08-16 20:58:37 - INFO - Generated sales history for 2025-08-09 to 2025-08-16. Found 3 sales.
+2025-08-16 20:58:37 - INFO - Database connection closed.
+2025-08-16 20:58:37 - INFO - Backend: DBManager connection closed for current request context.
+2025-08-16 20:58:37 - INFO - 127.0.0.1 - - [16/Aug/2025 20:58:37] "GET /reports/sales_history?start_date=2025-08-09&end_date=2025-08-16 HTTP/1.1" 200 -
+2025-11-08 00:35:14 - INFO - Backend: Starting one-time database setup.
+2025-11-08 00:35:14 - INFO - Connected to database: pos_database.db
+2025-11-08 00:35:14 - INFO - Products table checked/created successfully.
+2025-11-08 00:35:14 - INFO - Sales table checked/created successfully.
+2025-11-08 00:35:14 - INFO - Sale_items table checked/created successfully.
+2025-11-08 00:35:14 - INFO - Database schema committed.
+2025-11-08 00:35:14 - INFO - Users table checked/created successfully.
+2025-11-08 00:35:14 - INFO - Products already exist, skipping default seeding.
+2025-11-08 00:35:14 - INFO - Database connection closed.
+2025-11-08 00:35:14 - INFO - Backend: One-time database setup completed successfully.
+2025-11-08 00:35:14 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.8.79:5000
+2025-11-08 00:35:14 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-08 00:35:14 - INFO -  * Restarting with stat
+2025-11-08 00:35:15 - INFO - Backend: Starting one-time database setup.
+2025-11-08 00:35:15 - INFO - Connected to database: pos_database.db
+2025-11-08 00:35:15 - INFO - Products table checked/created successfully.
+2025-11-08 00:35:15 - INFO - Sales table checked/created successfully.
+2025-11-08 00:35:15 - INFO - Sale_items table checked/created successfully.
+2025-11-08 00:35:15 - INFO - Database schema committed.
+2025-11-08 00:35:15 - INFO - Users table checked/created successfully.
+2025-11-08 00:35:15 - INFO - Products already exist, skipping default seeding.
+2025-11-08 00:35:15 - INFO - Database connection closed.
+2025-11-08 00:35:15 - INFO - Backend: One-time database setup completed successfully.
+2025-11-08 00:35:15 - WARNING -  * Debugger is active!
+2025-11-08 00:35:15 - INFO -  * Debugger PIN: 105-121-574
+2025-11-08 00:36:14 - INFO - Connected to database: pos_database.db
+2025-11-08 00:36:14 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:36:14 - INFO - Database connection closed.
+2025-11-08 00:36:14 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:36:14 - INFO - 127.0.0.1 - - [08/Nov/2025 00:36:14] "OPTIONS /login HTTP/1.1" 200 -
+2025-11-08 00:36:14 - INFO - Connected to database: pos_database.db
+2025-11-08 00:36:14 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:36:14 - INFO - User 'admin' logged in successfully (Role: admin).
+2025-11-08 00:36:14 - INFO - User 'admin' logged in successfully.
+2025-11-08 00:36:14 - INFO - Database connection closed.
+2025-11-08 00:36:14 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:36:14 - INFO - 127.0.0.1 - - [08/Nov/2025 00:36:14] "POST /login HTTP/1.1" 200 -
+2025-11-08 00:36:14 - INFO - Connected to database: pos_database.db
+2025-11-08 00:36:14 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:36:14 - INFO - Retrieved 15 products.
+2025-11-08 00:36:14 - INFO - Database connection closed.
+2025-11-08 00:36:14 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:36:14 - INFO - 127.0.0.1 - - [08/Nov/2025 00:36:14] "GET /products HTTP/1.1" 200 -
+2025-11-08 00:37:42 - INFO - Connected to database: pos_database.db
+2025-11-08 00:37:42 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:37:42 - INFO - Database connection closed.
+2025-11-08 00:37:42 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:37:42 - INFO - 127.0.0.1 - - [08/Nov/2025 00:37:42] "OPTIONS /login HTTP/1.1" 200 -
+2025-11-08 00:37:42 - INFO - Connected to database: pos_database.db
+2025-11-08 00:37:42 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:37:42 - INFO - User 'admin' logged in successfully (Role: admin).
+2025-11-08 00:37:42 - INFO - User 'admin' logged in successfully.
+2025-11-08 00:37:42 - INFO - Database connection closed.
+2025-11-08 00:37:42 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:37:42 - INFO - 127.0.0.1 - - [08/Nov/2025 00:37:42] "POST /login HTTP/1.1" 200 -
+2025-11-08 00:37:43 - INFO - Connected to database: pos_database.db
+2025-11-08 00:37:43 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:37:43 - INFO - Retrieved 15 products.
+2025-11-08 00:37:43 - INFO - Database connection closed.
+2025-11-08 00:37:43 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:37:43 - INFO - 127.0.0.1 - - [08/Nov/2025 00:37:43] "GET /products HTTP/1.1" 200 -
+2025-11-08 00:38:00 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:00 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:00 - INFO - Database connection closed.
+2025-11-08 00:38:00 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:00 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:00] "OPTIONS /sales/checkout HTTP/1.1" 200 -
+2025-11-08 00:38:00 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:00 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:01 - INFO - Backend: Starting checkout transaction.
+2025-11-08 00:38:01 - INFO - Decreased stock for product P014 by 1.
+2025-11-08 00:38:01 - INFO - Decreased stock for product P004 by 1.
+2025-11-08 00:38:01 - INFO - Decreased stock for product P003 by 1.
+2025-11-08 00:38:01 - INFO - Decreased stock for product P001 by 1.
+2025-11-08 00:38:01 - INFO - Decreased stock for product P007 by 1.
+2025-11-08 00:38:01 - INFO - Decreased stock for product P002 by 1.
+2025-11-08 00:38:01 - INFO - Decreased stock for product P015 by 1.
+2025-11-08 00:38:01 - INFO - Decreased stock for product P008 by 1.
+2025-11-08 00:38:01 - INFO - Sale recorded (ID: 4, Total: 1385.0, Method: Cash). Awaiting commit.
+2025-11-08 00:38:01 - INFO - Backend: Main sale record created with Sale ID: 4
+2025-11-08 00:38:01 - INFO - Sale item recorded for Sale ID 4: Product Baraka Cooking Oil (2L), Quantity 1.
+2025-11-08 00:38:01 - INFO - Backend: Sale item recorded: Sale ID 4, Product ID P014, Qty 1
+2025-11-08 00:38:01 - INFO - Sale item recorded for Sale ID 4: Product Blue Band Margarine (250g), Quantity 1.
+2025-11-08 00:38:01 - INFO - Backend: Sale item recorded: Sale ID 4, Product ID P004, Qty 1
+2025-11-08 00:38:01 - INFO - Sale item recorded for Sale ID 4: Product Broadways Bread (400g), Quantity 1.
+2025-11-08 00:38:01 - INFO - Backend: Sale item recorded: Sale ID 4, Product ID P003, Qty 1
+2025-11-08 00:38:01 - INFO - Sale item recorded for Sale ID 4: Product Coca-Cola (500ml), Quantity 1.
+2025-11-08 00:38:01 - INFO - Backend: Sale item recorded: Sale ID 4, Product ID P001, Qty 1
+2025-11-08 00:38:01 - INFO - Sale item recorded for Sale ID 4: Product Colgate Toothpaste (100g), Quantity 1.
+2025-11-08 00:38:01 - INFO - Backend: Sale item recorded: Sale ID 4, Product ID P007, Qty 1
+2025-11-08 00:38:01 - INFO - Sale item recorded for Sale ID 4: Product Dairyland Milk (500ml), Quantity 1.
+2025-11-08 00:38:01 - INFO - Backend: Sale item recorded: Sale ID 4, Product ID P002, Qty 1
+2025-11-08 00:38:01 - INFO - Sale item recorded for Sale ID 4: Product Exe Flour (1kg), Quantity 1.
+2025-11-08 00:38:01 - INFO - Backend: Sale item recorded: Sale ID 4, Product ID P015, Qty 1
+2025-11-08 00:38:01 - INFO - Sale item recorded for Sale ID 4: Product Geisha Soap, Quantity 1.
+2025-11-08 00:38:01 - INFO - Backend: Sale item recorded: Sale ID 4, Product ID P008, Qty 1
+2025-11-08 00:38:01 - INFO - Backend: Checkout transaction committed successfully for Sale ID: 4
+2025-11-08 00:38:01 - INFO - Database connection closed.
+2025-11-08 00:38:01 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:01 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:01] "POST /sales/checkout HTTP/1.1" 200 -
+2025-11-08 00:38:01 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:01 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:01 - INFO - Retrieved 15 products.
+2025-11-08 00:38:01 - INFO - Database connection closed.
+2025-11-08 00:38:01 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:01 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:01] "GET /products HTTP/1.1" 200 -
+2025-11-08 00:38:10 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:10 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:10 - INFO - Generated sales history for 2025-10-31 to 2025-11-07. Found 0 sales.
+2025-11-08 00:38:10 - INFO - Database connection closed.
+2025-11-08 00:38:10 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:10 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:10] "GET /reports/sales_history?start_date=2025-10-31&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:38:17 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:17 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:17 - INFO - Retrieved daily sales summary for 2025-11-07: Total: 0.0, Count: 0
+2025-11-08 00:38:17 - INFO - Generated daily sales report for 2025-11-07. Total: 0.0, Count: 0.
+2025-11-08 00:38:17 - INFO - Database connection closed.
+2025-11-08 00:38:17 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:17 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:17] "GET /reports/daily_sales?date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:38:21 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:21 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:21 - INFO - Generated sales history for 2025-10-31 to 2025-11-07. Found 0 sales.
+2025-11-08 00:38:21 - INFO - Database connection closed.
+2025-11-08 00:38:21 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:21 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:21] "GET /reports/sales_history?start_date=2025-10-31&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:38:23 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:23 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:23 - INFO - Generated top selling products report for 2025-10-08 to 2025-11-07 with limit 10.
+2025-11-08 00:38:23 - INFO - Database connection closed.
+2025-11-08 00:38:23 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:23 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:23] "GET /reports/top_products?limit=10&start_date=2025-10-08&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:38:25 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:25 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:25 - INFO - Generated top selling products report for 2025-10-08 to 2025-11-07 with limit 10.
+2025-11-08 00:38:25 - INFO - Database connection closed.
+2025-11-08 00:38:25 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:25 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:25] "GET /reports/top_products?limit=10&start_date=2025-10-08&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:38:26 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:26 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:26 - INFO - Generated top selling products report for 2025-10-08 to 2025-11-07 with limit 10.
+2025-11-08 00:38:26 - INFO - Database connection closed.
+2025-11-08 00:38:26 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:26 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:26] "GET /reports/top_products?limit=10&start_date=2025-10-08&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:38:26 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:26 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:26 - INFO - Generated top selling products report for 2025-10-08 to 2025-11-07 with limit 10.
+2025-11-08 00:38:26 - INFO - Database connection closed.
+2025-11-08 00:38:26 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:26 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:26] "GET /reports/top_products?limit=10&start_date=2025-10-08&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:38:27 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:27 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:27 - INFO - Generated top selling products report for 2025-10-08 to 2025-11-07 with limit 10.
+2025-11-08 00:38:27 - INFO - Database connection closed.
+2025-11-08 00:38:27 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:27 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:27] "GET /reports/top_products?limit=10&start_date=2025-10-08&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:38:28 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:28 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:28 - INFO - Generated sales history for 2025-10-31 to 2025-11-07. Found 0 sales.
+2025-11-08 00:38:28 - INFO - Database connection closed.
+2025-11-08 00:38:28 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:28 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:28] "GET /reports/sales_history?start_date=2025-10-31&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:38:50 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:50 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:50 - INFO - Generated sales history for 2025-10-31 to 2025-11-08. Found 1 sales.
+2025-11-08 00:38:50 - INFO - Database connection closed.
+2025-11-08 00:38:50 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:50 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:50] "GET /reports/sales_history?start_date=2025-10-31&end_date=2025-11-08 HTTP/1.1" 200 -
+2025-11-08 00:38:56 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:56 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:56 - INFO - Retrieved daily sales summary for 2025-11-08: Total: 1385.0, Count: 1
+2025-11-08 00:38:56 - INFO - Generated daily sales report for 2025-11-08. Total: 1385.0, Count: 1.
+2025-11-08 00:38:56 - INFO - Database connection closed.
+2025-11-08 00:38:56 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:56 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:56] "GET /reports/daily_sales?date=2025-11-08 HTTP/1.1" 200 -
+2025-11-08 00:38:58 - INFO - Connected to database: pos_database.db
+2025-11-08 00:38:58 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:38:58 - INFO - Generated top selling products report for 2025-10-08 to 2025-11-07 with limit 10.
+2025-11-08 00:38:58 - INFO - Database connection closed.
+2025-11-08 00:38:58 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:38:58 - INFO - 127.0.0.1 - - [08/Nov/2025 00:38:58] "GET /reports/top_products?limit=10&start_date=2025-10-08&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:39:03 - INFO - Connected to database: pos_database.db
+2025-11-08 00:39:03 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:39:03 - INFO - Generated top selling products report for 2025-10-08 to 2025-11-08 with limit 10.
+2025-11-08 00:39:03 - INFO - Database connection closed.
+2025-11-08 00:39:03 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:39:03 - INFO - 127.0.0.1 - - [08/Nov/2025 00:39:03] "GET /reports/top_products?limit=10&start_date=2025-10-08&end_date=2025-11-08 HTTP/1.1" 200 -
+2025-11-08 00:39:29 - INFO - Connected to database: pos_database.db
+2025-11-08 00:39:29 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:39:29 - INFO - Retrieved 15 products.
+2025-11-08 00:39:29 - INFO - Database connection closed.
+2025-11-08 00:39:29 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:39:29 - INFO - 127.0.0.1 - - [08/Nov/2025 00:39:29] "GET /products HTTP/1.1" 200 -
+2025-11-08 00:40:03 - INFO - Connected to database: pos_database.db
+2025-11-08 00:40:03 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:40:03 - INFO - Database connection closed.
+2025-11-08 00:40:03 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:40:03 - INFO - 127.0.0.1 - - [08/Nov/2025 00:40:03] "OPTIONS /sales/checkout HTTP/1.1" 200 -
+2025-11-08 00:40:03 - INFO - Connected to database: pos_database.db
+2025-11-08 00:40:03 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:40:03 - INFO - Backend: Starting checkout transaction.
+2025-11-08 00:40:03 - INFO - Decreased stock for product P010 by 3.
+2025-11-08 00:40:03 - INFO - Decreased stock for product P011 by 3.
+2025-11-08 00:40:03 - INFO - Decreased stock for product P012 by 8.
+2025-11-08 00:40:03 - INFO - Decreased stock for product P009 by 2.
+2025-11-08 00:40:03 - INFO - Sale recorded (ID: 5, Total: 2940.0, Method: M-Pesa). Awaiting commit.
+2025-11-08 00:40:03 - INFO - Backend: Main sale record created with Sale ID: 5
+2025-11-08 00:40:03 - INFO - Sale item recorded for Sale ID 5: Product Sugar (1kg), Quantity 3.
+2025-11-08 00:40:03 - INFO - Backend: Sale item recorded: Sale ID 5, Product ID P010, Qty 3
+2025-11-08 00:40:03 - INFO - Sale item recorded for Sale ID 5: Product Tea Leaves (250g), Quantity 3.
+2025-11-08 00:40:03 - INFO - Backend: Sale item recorded: Sale ID 5, Product ID P011, Qty 3
+2025-11-08 00:40:03 - INFO - Sale item recorded for Sale ID 5: Product Unga (2kg), Quantity 8.
+2025-11-08 00:40:03 - INFO - Backend: Sale item recorded: Sale ID 5, Product ID P012, Qty 8
+2025-11-08 00:40:03 - INFO - Sale item recorded for Sale ID 5: Product Salt (1kg), Quantity 2.
+2025-11-08 00:40:03 - INFO - Backend: Sale item recorded: Sale ID 5, Product ID P009, Qty 2
+2025-11-08 00:40:03 - INFO - Backend: Checkout transaction committed successfully for Sale ID: 5
+2025-11-08 00:40:03 - INFO - Database connection closed.
+2025-11-08 00:40:03 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:40:03 - INFO - 127.0.0.1 - - [08/Nov/2025 00:40:03] "POST /sales/checkout HTTP/1.1" 200 -
+2025-11-08 00:40:03 - INFO - Connected to database: pos_database.db
+2025-11-08 00:40:03 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:40:03 - INFO - Retrieved 15 products.
+2025-11-08 00:40:03 - INFO - Database connection closed.
+2025-11-08 00:40:03 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:40:03 - INFO - 127.0.0.1 - - [08/Nov/2025 00:40:03] "GET /products HTTP/1.1" 200 -
+2025-11-08 00:41:06 - INFO - Connected to database: pos_database.db
+2025-11-08 00:41:06 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:41:06 - INFO - Database connection closed.
+2025-11-08 00:41:06 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:41:06 - INFO - 127.0.0.1 - - [08/Nov/2025 00:41:06] "OPTIONS /sales/checkout HTTP/1.1" 200 -
+2025-11-08 00:41:06 - INFO - Connected to database: pos_database.db
+2025-11-08 00:41:06 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:41:06 - INFO - Backend: Starting checkout transaction.
+2025-11-08 00:41:06 - INFO - Decreased stock for product P014 by 2.
+2025-11-08 00:41:06 - INFO - Decreased stock for product P004 by 1.
+2025-11-08 00:41:06 - INFO - Decreased stock for product P003 by 1.
+2025-11-08 00:41:06 - INFO - Decreased stock for product P001 by 1.
+2025-11-08 00:41:06 - INFO - Decreased stock for product P007 by 1.
+2025-11-08 00:41:06 - INFO - Decreased stock for product P002 by 1.
+2025-11-08 00:41:06 - INFO - Decreased stock for product P015 by 1.
+2025-11-08 00:41:06 - INFO - Decreased stock for product P008 by 1.
+2025-11-08 00:41:06 - INFO - Decreased stock for product P005 by 20.
+2025-11-08 00:41:06 - INFO - Sale recorded (ID: 6, Total: 9065.0, Method: Cash). Awaiting commit.
+2025-11-08 00:41:06 - INFO - Backend: Main sale record created with Sale ID: 6
+2025-11-08 00:41:06 - INFO - Sale item recorded for Sale ID 6: Product Baraka Cooking Oil (2L), Quantity 2.
+2025-11-08 00:41:06 - INFO - Backend: Sale item recorded: Sale ID 6, Product ID P014, Qty 2
+2025-11-08 00:41:06 - INFO - Sale item recorded for Sale ID 6: Product Blue Band Margarine (250g), Quantity 1.
+2025-11-08 00:41:06 - INFO - Backend: Sale item recorded: Sale ID 6, Product ID P004, Qty 1
+2025-11-08 00:41:06 - INFO - Sale item recorded for Sale ID 6: Product Broadways Bread (400g), Quantity 1.
+2025-11-08 00:41:06 - INFO - Backend: Sale item recorded: Sale ID 6, Product ID P003, Qty 1
+2025-11-08 00:41:06 - INFO - Sale item recorded for Sale ID 6: Product Coca-Cola (500ml), Quantity 1.
+2025-11-08 00:41:06 - INFO - Backend: Sale item recorded: Sale ID 6, Product ID P001, Qty 1
+2025-11-08 00:41:06 - INFO - Sale item recorded for Sale ID 6: Product Colgate Toothpaste (100g), Quantity 1.
+2025-11-08 00:41:06 - INFO - Backend: Sale item recorded: Sale ID 6, Product ID P007, Qty 1
+2025-11-08 00:41:06 - INFO - Sale item recorded for Sale ID 6: Product Dairyland Milk (500ml), Quantity 1.
+2025-11-08 00:41:06 - INFO - Backend: Sale item recorded: Sale ID 6, Product ID P002, Qty 1
+2025-11-08 00:41:06 - INFO - Sale item recorded for Sale ID 6: Product Exe Flour (1kg), Quantity 1.
+2025-11-08 00:41:06 - INFO - Backend: Sale item recorded: Sale ID 6, Product ID P015, Qty 1
+2025-11-08 00:41:06 - INFO - Sale item recorded for Sale ID 6: Product Geisha Soap, Quantity 1.
+2025-11-08 00:41:06 - INFO - Backend: Sale item recorded: Sale ID 6, Product ID P008, Qty 1
+2025-11-08 00:41:06 - INFO - Sale item recorded for Sale ID 6: Product Kimbo Cooking Oil (1L), Quantity 20.
+2025-11-08 00:41:06 - INFO - Backend: Sale item recorded: Sale ID 6, Product ID P005, Qty 20
+2025-11-08 00:41:06 - INFO - Backend: Checkout transaction committed successfully for Sale ID: 6
+2025-11-08 00:41:06 - INFO - Database connection closed.
+2025-11-08 00:41:06 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:41:06 - INFO - 127.0.0.1 - - [08/Nov/2025 00:41:06] "POST /sales/checkout HTTP/1.1" 200 -
+2025-11-08 00:41:07 - INFO - Connected to database: pos_database.db
+2025-11-08 00:41:07 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:41:07 - INFO - Retrieved 15 products.
+2025-11-08 00:41:07 - INFO - Database connection closed.
+2025-11-08 00:41:07 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:41:07 - INFO - 127.0.0.1 - - [08/Nov/2025 00:41:07] "GET /products HTTP/1.1" 200 -
+2025-11-08 00:42:03 - INFO - Connected to database: pos_database.db
+2025-11-08 00:42:03 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:42:03 - INFO - Retrieved daily sales summary for 2025-11-07: Total: 0.0, Count: 0
+2025-11-08 00:42:03 - INFO - Generated daily sales report for 2025-11-07. Total: 0.0, Count: 0.
+2025-11-08 00:42:03 - INFO - Database connection closed.
+2025-11-08 00:42:03 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:42:03 - INFO - 127.0.0.1 - - [08/Nov/2025 00:42:03] "GET /reports/daily_sales?date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:42:10 - INFO - Connected to database: pos_database.db
+2025-11-08 00:42:10 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:42:10 - INFO - Retrieved daily sales summary for 2025-11-08: Total: 13390.0, Count: 3
+2025-11-08 00:42:10 - INFO - Generated daily sales report for 2025-11-08. Total: 13390.0, Count: 3.
+2025-11-08 00:42:10 - INFO - Database connection closed.
+2025-11-08 00:42:10 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:42:10 - INFO - 127.0.0.1 - - [08/Nov/2025 00:42:10] "GET /reports/daily_sales?date=2025-11-08 HTTP/1.1" 200 -
+2025-11-08 00:44:01 - INFO - Connected to database: pos_database.db
+2025-11-08 00:44:01 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:44:01 - INFO - Generated top selling products report for 2025-05-02 to 2025-11-09 with limit 10.
+2025-11-08 00:44:01 - INFO - Database connection closed.
+2025-11-08 00:44:01 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:44:01 - INFO - 127.0.0.1 - - [08/Nov/2025 00:44:01] "GET /reports/top_products?limit=10&start_date=2025-05-02&end_date=2025-11-09 HTTP/1.1" 200 -
+2025-11-08 00:44:32 - INFO - Connected to database: pos_database.db
+2025-11-08 00:44:32 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:44:32 - INFO - Generated sales history for 2025-05-30 to 2025-11-07. Found 3 sales.
+2025-11-08 00:44:32 - INFO - Database connection closed.
+2025-11-08 00:44:32 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:44:32 - INFO - 127.0.0.1 - - [08/Nov/2025 00:44:32] "GET /reports/sales_history?start_date=2025-05-30&end_date=2025-11-07 HTTP/1.1" 200 -
+2025-11-08 00:44:40 - INFO - Connected to database: pos_database.db
+2025-11-08 00:44:40 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:44:40 - INFO - Retrieved details for Sale ID 3.
+2025-11-08 00:44:40 - INFO - Retrieved 4 sale items for Sale ID 3.
+2025-11-08 00:44:40 - INFO - Database connection closed.
+2025-11-08 00:44:40 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:44:40 - INFO - 127.0.0.1 - - [08/Nov/2025 00:44:40] "GET /reports/sale_items/3 HTTP/1.1" 200 -
+2025-11-08 00:44:41 - INFO - Connected to database: pos_database.db
+2025-11-08 00:44:41 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:44:41 - INFO - Retrieved details for Sale ID 2.
+2025-11-08 00:44:41 - INFO - Retrieved 5 sale items for Sale ID 2.
+2025-11-08 00:44:41 - INFO - Database connection closed.
+2025-11-08 00:44:41 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:44:41 - INFO - 127.0.0.1 - - [08/Nov/2025 00:44:41] "GET /reports/sale_items/2 HTTP/1.1" 200 -
+2025-11-08 00:44:42 - INFO - Connected to database: pos_database.db
+2025-11-08 00:44:42 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:44:42 - INFO - Retrieved details for Sale ID 1.
+2025-11-08 00:44:42 - INFO - Retrieved 4 sale items for Sale ID 1.
+2025-11-08 00:44:42 - INFO - Database connection closed.
+2025-11-08 00:44:42 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:44:42 - INFO - 127.0.0.1 - - [08/Nov/2025 00:44:42] "GET /reports/sale_items/1 HTTP/1.1" 200 -
+2025-11-08 00:44:56 - INFO - Connected to database: pos_database.db
+2025-11-08 00:44:56 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:44:56 - INFO - Retrieved details for Sale ID 3.
+2025-11-08 00:44:56 - INFO - Retrieved 4 sale items for Sale ID 3.
+2025-11-08 00:44:56 - INFO - Database connection closed.
+2025-11-08 00:44:56 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:44:56 - INFO - 127.0.0.1 - - [08/Nov/2025 00:44:56] "GET /reports/sale_items/3 HTTP/1.1" 200 -
+2025-11-08 00:44:59 - INFO - Connected to database: pos_database.db
+2025-11-08 00:44:59 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:44:59 - INFO - Retrieved details for Sale ID 1.
+2025-11-08 00:44:59 - INFO - Retrieved 4 sale items for Sale ID 1.
+2025-11-08 00:44:59 - INFO - Database connection closed.
+2025-11-08 00:44:59 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:44:59 - INFO - 127.0.0.1 - - [08/Nov/2025 00:44:59] "GET /reports/sale_items/1 HTTP/1.1" 200 -
+2025-11-08 00:45:01 - INFO - Connected to database: pos_database.db
+2025-11-08 00:45:01 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:45:01 - INFO - Retrieved details for Sale ID 2.
+2025-11-08 00:45:01 - INFO - Retrieved 5 sale items for Sale ID 2.
+2025-11-08 00:45:01 - INFO - Database connection closed.
+2025-11-08 00:45:01 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:45:01 - INFO - 127.0.0.1 - - [08/Nov/2025 00:45:01] "GET /reports/sale_items/2 HTTP/1.1" 200 -
+2025-11-08 00:45:16 - INFO - Connected to database: pos_database.db
+2025-11-08 00:45:16 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:45:16 - INFO - Retrieved 15 products.
+2025-11-08 00:45:16 - INFO - Database connection closed.
+2025-11-08 00:45:16 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:45:16 - INFO - 127.0.0.1 - - [08/Nov/2025 00:45:16] "GET /products HTTP/1.1" 200 -
+2025-11-08 00:46:21 - INFO - Connected to database: pos_database.db
+2025-11-08 00:46:21 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:46:21 - INFO - Database connection closed.
+2025-11-08 00:46:21 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:46:21 - INFO - 127.0.0.1 - - [08/Nov/2025 00:46:21] "OPTIONS /products HTTP/1.1" 200 -
+2025-11-08 00:46:21 - INFO - Connected to database: pos_database.db
+2025-11-08 00:46:21 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:46:21 - WARNING - Attempted to add existing Product ID: P013
+2025-11-08 00:46:21 - WARNING - Failed to add product 'P013' via API (might exist).
+2025-11-08 00:46:21 - INFO - Database connection closed.
+2025-11-08 00:46:21 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:46:21 - INFO - 127.0.0.1 - - [08/Nov/2025 00:46:21] "[31m[1mPOST /products HTTP/1.1[0m" 409 -
+2025-11-08 00:46:48 - INFO - Connected to database: pos_database.db
+2025-11-08 00:46:48 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:46:48 - INFO - Database connection closed.
+2025-11-08 00:46:48 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:46:48 - INFO - 127.0.0.1 - - [08/Nov/2025 00:46:48] "OPTIONS /products HTTP/1.1" 200 -
+2025-11-08 00:46:48 - INFO - Connected to database: pos_database.db
+2025-11-08 00:46:48 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:46:48 - INFO - Product 'y' (ID: P090) added successfully.
+2025-11-08 00:46:48 - INFO - Product 'y' (ID: P090) added via API.
+2025-11-08 00:46:48 - INFO - Database connection closed.
+2025-11-08 00:46:48 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:46:48 - INFO - 127.0.0.1 - - [08/Nov/2025 00:46:48] "[35m[1mPOST /products HTTP/1.1[0m" 201 -
+2025-11-08 00:46:48 - INFO - Connected to database: pos_database.db
+2025-11-08 00:46:48 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:46:48 - INFO - Retrieved 16 products.
+2025-11-08 00:46:48 - INFO - Database connection closed.
+2025-11-08 00:46:48 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:46:48 - INFO - 127.0.0.1 - - [08/Nov/2025 00:46:48] "GET /products HTTP/1.1" 200 -
+2025-11-08 00:47:00 - INFO - Connected to database: pos_database.db
+2025-11-08 00:47:00 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:47:00 - INFO - Database connection closed.
+2025-11-08 00:47:00 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:47:00 - INFO - 127.0.0.1 - - [08/Nov/2025 00:47:00] "OPTIONS /products/P090 HTTP/1.1" 200 -
+2025-11-08 00:47:00 - INFO - Connected to database: pos_database.db
+2025-11-08 00:47:00 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:47:00 - INFO - Product 'P090' deleted successfully.
+2025-11-08 00:47:00 - INFO - Product 'P090' deleted via API.
+2025-11-08 00:47:00 - INFO - Database connection closed.
+2025-11-08 00:47:00 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:47:00 - INFO - 127.0.0.1 - - [08/Nov/2025 00:47:00] "DELETE /products/P090 HTTP/1.1" 200 -
+2025-11-08 00:47:00 - INFO - Connected to database: pos_database.db
+2025-11-08 00:47:00 - INFO - Backend: New DBManager created for current request context.
+2025-11-08 00:47:00 - INFO - Retrieved 15 products.
+2025-11-08 00:47:00 - INFO - Database connection closed.
+2025-11-08 00:47:00 - INFO - Backend: DBManager connection closed for current request context.
+2025-11-08 00:47:00 - INFO - 127.0.0.1 - - [08/Nov/2025 00:47:00] "GET /products HTTP/1.1" 200 -

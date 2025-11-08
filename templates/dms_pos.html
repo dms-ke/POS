@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMS.ATEK POS System</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Basic styling for modals to ensure they are centered */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel for JSX transformation in the browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect, useCallback, useMemo } = React; // Added useMemo
+        const { createRoot } = ReactDOM;
+
+        // Backend API base URL
+        const API_BASE_URL = 'http://127.0.0.1:5000'; 
+
+        // Main App Component
+        const App = () => {
+            const [loggedInUser, setLoggedInUser] = useState(null);
+            const [currentPage, setCurrentPage] = useState('login');
+            const [notification, setNotification] = useState({ message: '', type: '' });
+
+            // Function to show a notification, memoized with useCallback
+            const showNotification = useCallback((message, type = 'info') => {
+                setNotification({ message, type });
+                setTimeout(() => setNotification({ message: '', type: '' }), 5000);
+            }, []);
+
+            // --- Login Component ---
+            const LoginComponent = ({ onLoginSuccess, showNotification }) => {
+                const [username, setUsername] = useState('');
+                const [password, setPassword] = useState('');
+                const [loading, setLoading] = useState(false);
+
+                useEffect(() => {
+                    console.log('LoginComponent mounted');
+                    return () => console.log('LoginComponent unmounted');
+                }, []);
+
+                const handleLogin = async () => {
+                    setLoading(true);
+                    console.log('Attempting login...');
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/login`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ username, password }),
+                        });
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+                            showNotification(data.message, 'success');
+                            onLoginSuccess(data.user);
+                            console.log('Login successful:', data.user);
+                        } else {
+                            showNotification(data.message || 'Login failed', 'error');
+                            console.log('Login failed:', data.message);
+                        }
+                    } catch (error) {
+                        console.error('Login error:', error);
+                        showNotification('Network error or server unavailable', 'error');
+                    } finally {
+                        setLoading(false);
+                    }
+                };
+
+                return (
+                    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 font-inter">
+                        <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+                            <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">DMS.ATEK POS System - Login</h2>
+                            <div className="mb-4">
+                                <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="username">
+                                    Username:
+                                </label>
+                                <input
+                                    type="text"
+                                    id="username"
+                                    className="shadow-sm appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    disabled={loading}
+                                />
+                            </div>
+                            <div className="mb-6">
+                                <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="password">
+                                    Password:
+                                </label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    className="shadow-sm appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    disabled={loading}
+                                />
+                            </div>
+                            <button
+                                onClick={handleLogin}
+                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled={loading}
+                            >
+                                {loading ? 'Logging in...' : 'Login'}
+                            </button>
+                            <p className="text-xs text-gray-500 mt-4 text-center">
+                                Default Admin: username 'admin', password 'adminpass'
+                            </p>
+                        </div>
+                    </div>
+                );
+            };
+
+            // --- POS Main Application Component ---
+            const POSAppComponent = ({ user, onLogout, showNotification }) => {
+                const [products, setProducts] = useState([]);
+                const [filteredProducts, setFilteredProducts] = useState([]);
+                const [cartItems, setCartItems] = useState({});
+                const [searchQuery, setSearchQuery] = useState('');
+                const [qtyToAdd, setQtyToAdd] = useState(1);
+                const [loadingProducts, setLoadingProducts] = useState(false);
+                const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+                const [paymentMethod, setPaymentMethod] = useState('');
+                const [amountTendered, setAmountTendered] = useState('');
+                const [changeDue, setChangeDue] = useState(0);
+                const [isReceiptModalOpen, setIsReceiptModalOpen] = useState(false);
+                const [receiptDetails, setReceiptDetails] = useState(null);
+
+                useEffect(() => {
+                    console.log('POSAppComponent mounted/re-rendered');
+                    return () => console.log('POSAppComponent unmounted');
+                }, []);
+
+
+                // Fetch Products - Memoized to ensure stability
+                const fetchProducts = useCallback(async () => {
+                    console.log('fetchProducts called');
+                    setLoadingProducts(true);
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/products`);
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        const data = await response.json();
+                        console.log('Products fetched:', data.length);
+                        setProducts(data);
+                        // No need to set filteredProducts here immediately, useEffect below handles it
+                        showNotification('Products loaded successfully', 'success');
+                    } catch (error) {
+                        console.error("Error fetching products:", error);
+                        showNotification('Failed to load products', 'error');
+                    } finally {
+                        setLoadingProducts(false);
+                    }
+                }, [showNotification]); // Depend only on stable showNotification
+
+                // Initial fetch on component mount
+                useEffect(() => {
+                    console.log('useEffect (fetchProducts) triggered');
+                    fetchProducts();
+                }, [fetchProducts]); // Dependency array contains the memoized function
+
+                // Filter Products (Client-side search)
+                useEffect(() => {
+                    console.log('useEffect (filterProducts) triggered. Query:', searchQuery);
+                    const lowerCaseQuery = searchQuery.toLowerCase();
+                    const results = products.filter(product =>
+                        product.name.toLowerCase().includes(lowerCaseQuery) ||
+                        product.product_id.toLowerCase().includes(lowerCaseQuery)
+                    );
+                    setFilteredProducts(results);
+                }, [searchQuery, products]); // Depend on searchQuery and products state
+
+                // Add Product to Cart
+                const addToCart = (product) => {
+                    const quantity = parseInt(qtyToAdd);
+
+                    if (isNaN(quantity) || quantity <= 0) {
+                        showNotification('Please enter a valid positive quantity.', 'warning');
+                        return;
+                    }
+
+                    const currentStock = product.stock;
+                    const currentCartQty = cartItems[product.product_id] ? cartItems[product.product_id].qty : 0;
+                    const newTotalQty = currentCartQty + quantity;
+
+                    if (newTotalQty > currentStock) {
+                        showNotification(`Insufficient stock for ${product.name}. Only ${currentStock} available.`, 'warning');
+                        return;
+                    }
+
+                    setCartItems(prevCartItems => {
+                        const existingItem = prevCartItems[product.product_id];
+                        let updatedCart;
+                        if (existingItem) {
+                            updatedCart = {
+                                ...prevCartItems,
+                                [product.product_id]: {
+                                    ...existingItem,
+                                    qty: newTotalQty,
+                                    total: newTotalQty * product.price,
+                                    product_id: product.product_id
+                                }
+                            };
+                        } else {
+                            updatedCart = {
+                                ...prevCartItems,
+                                [product.product_id]: {
+                                    name: product.name,
+                                    price: product.price,
+                                    qty: quantity,
+                                    total: quantity * product.price,
+                                    product_id: product.product_id
+                                }
+                            };
+                        }
+                        showNotification(`${quantity} x ${product.name} added to cart.`, 'success');
+                        return updatedCart;
+                    });
+                    setQtyToAdd(1);
+                };
+
+                // Remove from Cart
+                const removeFromCart = (productId) => {
+                    setCartItems(prevCartItems => {
+                        const updatedCart = { ...prevCartItems };
+                        delete updatedCart[productId];
+                        showNotification('Item removed from cart.', 'info');
+                        return updatedCart;
+                    });
+                };
+
+                // Clear Cart
+                const clearCart = () => {
+                    if (Object.keys(cartItems).length > 0) {
+                        if (confirm('Are you sure you want to clear the entire cart?')) {
+                            setCartItems({});
+                            showNotification('Cart cleared.', 'info');
+                        }
+                    } else {
+                        showNotification('Cart is already empty.', 'info');
+                    }
+                };
+
+                // Calculate Subtotal and Total
+                const subtotal = Object.values(cartItems).reduce((sum, item) => sum + item.total, 0);
+                const totalAmount = subtotal; 
+
+                // Open Add/Edit Product Modal
+                const [isProductModalOpen, setIsProductModalOpen] = useState(false);
+                const [editingProduct, setEditingProduct] = useState(null); 
+
+                const openAddProductModal = () => {
+                    setEditingProduct(null);
+                    setIsProductModalOpen(true);
+                };
+
+                const openEditProductModal = (product) => {
+                    setEditingProduct(product);
+                    setIsProductModalOpen(true);
+                };
+
+                // Add/Edit Product Form Component
+                const ProductFormModal = ({ isOpen, onClose, product, onSave, showNotification }) => {
+                    const [productId, setProductId] = useState('');
+                    const [name, setName] = useState('');
+                    const [price, setPrice] = useState('');
+                    const [stock, setStock] = useState('');
+                    const [loading, setLoading] = useState(false);
+
+                    useEffect(() => {
+                        console.log('ProductFormModal mounted/re-rendered. Product:', product?.product_id);
+                        if (product) {
+                            setProductId(product.product_id);
+                            setName(product.name);
+                            setPrice(product.price.toString());
+                            setStock(product.stock.toString());
+                        } else {
+                            setProductId('');
+                            setName('');
+                            setPrice('');
+                            setStock('');
+                        }
+                    }, [product]); // Dependency on 'product' ensures reset for new/edit
+
+                    const handleSubmit = async () => {
+                        if (!productId || !name || !price || !stock) {
+                            showNotification('All fields are required.', 'warning');
+                            return;
+                        }
+                        if (parseFloat(price) <= 0) {
+                            showNotification('Price must be greater than zero.', 'warning');
+                            return;
+                        }
+                        if (parseInt(stock) < 0) {
+                            showNotification('Stock cannot be negative.', 'warning');
+                            return;
+                        }
+
+                        setLoading(true);
+                        try {
+                            const productData = {
+                                product_id: productId,
+                                name: name,
+                                price: parseFloat(price),
+                                stock: parseInt(stock)
+                            };
+
+                            const url = product ? `${API_BASE_URL}/products/${productId}` : `${API_BASE_URL}/products`;
+                            const method = product ? 'PUT' : 'POST';
+
+                            console.log(`Sending ${method} request to ${url} with data:`, productData);
+                            const response = await fetch(url, {
+                                method: method,
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(productData),
+                            });
+
+                            const data = await response.json();
+                            console.log('Product API response:', data);
+
+                            if (response.ok) {
+                                showNotification(data.message, 'success');
+                                onSave(); 
+                                onClose();
+                            } else {
+                                showNotification(data.message || `Failed to ${product ? 'update' : 'add'} product.`, 'error');
+                            }
+                        } catch (error) {
+                            console.error(`Error ${product ? 'updating' : 'adding'} product:`, error);
+                            showNotification('Network error or server unavailable.', 'error');
+                        } finally {
+                            setLoading(false);
+                        }
+                    };
+
+                    if (!isOpen) return null;
+
+                    return (
+                        <div className="modal-overlay">
+                            <div className="modal-content bg-white p-6 rounded-lg shadow-xl w-full max-w-lg">
+                                <h3 className="text-xl font-bold mb-4">{product ? 'Edit Product' : 'Add New Product'}</h3>
+                                <div className="mb-4">
+                                    <label className="block text-gray-700 text-sm font-semibold mb-2">Product ID:</label>
+                                    <input
+                                        type="text"
+                                        className="shadow-sm appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        value={productId}
+                                        onChange={(e) => setProductId(e.target.value.toUpperCase())}
+                                        readOnly={!!product}
+                                        disabled={loading}
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-gray-700 text-sm font-semibold mb-2">Name:</label>
+                                    <input
+                                        type="text"
+                                        className="shadow-sm appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        disabled={loading}
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-gray-700 text-sm font-semibold mb-2">Price (KES):</label>
+                                    <input
+                                        type="number"
+                                        step="0.01"
+                                        className="shadow-sm appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        value={price}
+                                        onChange={(e) => setPrice(e.target.value)}
+                                        disabled={loading}
+                                    />
+                                </div>
+                                <div className="mb-6">
+                                    <label className="block text-gray-700 text-sm font-semibold mb-2">Stock:</label>
+                                    <input
+                                        type="number"
+                                        className="shadow-sm appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        value={stock}
+                                        onChange={(e) => setStock(e.target.value)}
+                                        disabled={loading}
+                                    />
+                                </div>
+                                <div className="flex justify-end gap-2">
+                                    <button
+                                        onClick={onClose}
+                                        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition duration-200 ease-in-out"
+                                        disabled={loading}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        onClick={handleSubmit}
+                                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+                                        disabled={loading}
+                                    >
+                                        {loading ? 'Saving...' : 'Save Product'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                };
+
+                // Delete Product
+                const deleteProduct = async (productId, productName) => {
+                    if (!confirm(`Are you sure you want to delete ${productName} (ID: ${productId})? This action cannot be undone.`)) {
+                        return;
+                    }
+
+                    try {
+                        console.log(`Deleting product: ${productId}`);
+                        const response = await fetch(`${API_BASE_URL}/products/${productId}`, {
+                            method: 'DELETE',
+                        });
+
+                        if (response.ok) {
+                            showNotification(`${productName} deleted successfully.`, 'success');
+                            fetchProducts(); 
+                            setCartItems(prev => {
+                                const newCart = { ...prev };
+                                delete newCart[productId];
+                                return newCart;
+                            });
+                        } else {
+                            const data = await response.json();
+                            showNotification(data.message || 'Failed to delete product.', 'error');
+                        }
+                    } catch (error) {
+                        console.error("Error deleting product:", error);
+                        showNotification('Network error or server unavailable.', 'error');
+                    }
+                };
+
+                // Checkout Process
+                const openCheckoutModal = (method) => {
+                    if (Object.keys(cartItems).length === 0) {
+                        showNotification('Please add items to the cart before proceeding to checkout.', 'warning');
+                        return;
+                    }
+                    setPaymentMethod(method);
+                    setAmountTendered('');
+                    setChangeDue(0);
+                    setIsCheckoutModalOpen(true);
+                };
+
+                const calculateChange = () => {
+                    const tendered = parseFloat(amountTendered);
+                    if (isNaN(tendered)) {
+                        setChangeDue(0);
+                        return;
+                    }
+                    setChangeDue(tendered - totalAmount);
+                };
+
+                const handleCheckout = async () => {
+                    if (changeDue < 0) {
+                        showNotification('Amount tendered is less than the total.', 'error');
+                        return;
+                    }
+
+                    try {
+                        console.log('Attempting checkout...');
+                        const response = await fetch(`${API_BASE_URL}/sales/checkout`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                cart_items: Object.values(cartItems),
+                                payment_method: paymentMethod,
+                                amount_tendered: parseFloat(amountTendered),
+                                change_due: changeDue,
+                                cashier_id: user.username
+                            }),
+                        });
+
+                        const data = await response.json();
+                        console.log('Checkout API response:', data);
+
+                        if (response.ok) {
+                            showNotification(data.message, 'success');
+                            setReceiptDetails(data);
+                            setIsReceiptModalOpen(true);
+                            setCartItems({});
+                            fetchProducts();
+                            setIsCheckoutModalOpen(false);
+                        } else {
+                            showNotification(data.message || 'Checkout failed.', 'error');
+                        }
+                    } catch (error) {
+                        console.error('Checkout error:', error);
+                        showNotification('Network error or server unavailable.', 'error');
+                    }
+                };
+
+                // Receipt Modal
+                const ReceiptModal = ({ isOpen, onClose, details, cartItems, user, subtotal }) => {
+                    if (!isOpen || !details) return null;
+
+                    const now = new Date();
+                    const formattedDate = now.toLocaleString();
+
+                    return (
+                        <div className="modal-overlay">
+                            <div className="modal-content bg-white p-6 rounded-lg shadow-xl w-full max-w-lg">
+                                <h3 className="text-2xl font-bold text-center mb-4">Receipt</h3>
+                                <pre className="bg-gray-100 p-4 rounded-md text-sm whitespace-pre-wrap font-mono">
+                                    {`-------------------------------------
+     DMS.ATEK POS SYSTEM
+    Wote, Makueni County
+-------------------------------------
+Date: ${formattedDate}
+Sale ID: ${details.sale_id}
+Cashier: ${user.username}
+--------------------------------------
+Item                Qty  Price    Total
+--------------------------------------`}
+                                    {Object.values(cartItems).map(item =>
+                                        `${item.name.padEnd(18).substring(0, 18)} ${item.qty.toString().padEnd(4)} ${item.price.toFixed(2).padStart(6)} ${item.total.toFixed(2).padStart(8)}\n`
+                                    ).join('')}
+                                    {`
+------------------------------------
+Subtotal:                    KES ${subtotal.toFixed(2)}
+Total:                       KES ${details.total_amount.toFixed(2)}
+------------------------------------
+Payment Method: ${details.payment_method}
+Amount Tendered:             KES ${details.amount_tendered.toFixed(2)}
+Change Due:                  KES ${details.change_due.toFixed(2)}
+------------------------------------
+THANK YOU FOR YOUR PURCHASE!
+------------------------------------`}
+                                </pre>
+                                <button
+                                    onClick={onClose}
+                                    className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 ease-in-out"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    );
+                };
+
+
+                return (
+                    <div className="min-h-screen bg-gray-100 font-inter flex flex-col">
+                        {/* Header */}
+                        <header className="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-10">
+                            <h1 className="text-xl font-bold text-gray-800">DMS.ATEK POS System</h1>
+                            <div className="flex items-center space-x-4">
+                                <span className="text-gray-700">Logged in as: <span className="font-semibold">{user.username}</span></span>
+                                <button
+                                    onClick={() => setCurrentPage('reports')}
+                                    className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition duration-200 ease-in-out"
+                                >
+                                    Reports
+                                </button>
+                                <button
+                                    onClick={onLogout}
+                                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition duration-200 ease-in-out"
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        </header>
+
+                        {/* Main Content Area */}
+                        <div className="flex flex-1 p-6 space-x-6">
+                            {/* Left Panel: Products & Search */}
+                            <div className="w-2/3 bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                                <h2 className="text-lg font-semibold mb-4 text-gray-700">Products</h2>
+                                <div className="mb-4 flex space-x-2">
+                                    <input
+                                        type="text"
+                                        placeholder="Search products by ID or name..."
+                                        className="flex-1 shadow-sm appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                    />
+                                    <button
+                                        onClick={() => { /* No action needed, search is reactive */ }} 
+                                        className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg transition duration-200 ease-in-out"
+                                    >
+                                        Search
+                                    </button>
+                                </div>
+
+                                {loadingProducts ? (
+                                    <div className="text-center py-8 text-gray-600">Loading products...</div>
+                                ) : (
+                                    <div className="overflow-x-auto flex-1">
+                                        <table className="min-w-full bg-white rounded-lg overflow-hidden">
+                                            <thead className="bg-blue-100">
+                                                <tr>
+                                                    <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">Product ID</th>
+                                                    <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">Name</th>
+                                                    <th className="py-2 px-4 text-right text-sm font-semibold text-gray-600">Price (KES)</th>
+                                                    <th className="py-2 px-4 text-right text-sm font-semibold text-gray-600">Stock</th>
+                                                    <th className="py-2 px-4 text-center text-sm font-semibold text-gray-600">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {filteredProducts.map(product => (
+                                                    <tr key={product.product_id} className="border-b border-gray-200 hover:bg-gray-50">
+                                                        <td className="py-2 px-4 text-sm text-gray-800">{product.product_id}</td>
+                                                        <td className="py-2 px-4 text-sm text-gray-800">{product.name}</td>
+                                                        <td className="py-2 px-4 text-right text-sm text-gray-800">{product.price.toFixed(2)}</td>
+                                                        <td className="py-2 px-4 text-right text-sm text-gray-800">{product.stock}</td>
+                                                        <td className="py-2 px-4 text-center">
+                                                            <button
+                                                                onClick={() => addToCart(product)}
+                                                                className="bg-green-500 hover:bg-green-600 text-white text-xs px-3 py-1 rounded-full mr-1 transition duration-200"
+                                                            >
+                                                                Add
+                                                            </button>
+                                                            <button
+                                                                onClick={() => openEditProductModal(product)}
+                                                                className="bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-3 py-1 rounded-full mr-1 transition duration-200"
+                                                            >
+                                                                Edit
+                                                            </button>
+                                                            <button
+                                                                onClick={() => deleteProduct(product.product_id, product.name)}
+                                                                className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full transition duration-200"
+                                                            >
+                                                                Delete
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                                {filteredProducts.length === 0 && (
+                                                    <tr>
+                                                        <td colSpan="5" className="text-center py-4 text-gray-500">No products found.</td>
+                                                    </tr>
+                                                )}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                )}
+
+                                <div className="mt-4 flex justify-end">
+                                    <button
+                                        onClick={openAddProductModal}
+                                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 ease-in-out"
+                                    >
+                                        Add New Product
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Right Panel: Cart & Checkout */}
+                            <div className="w-1/3 bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                                <h2 className="text-lg font-semibold mb-4 text-gray-700">Cart</h2>
+                                <div className="mb-4 flex items-center space-x-2">
+                                    <input
+                                        type="number"
+                                        value={qtyToAdd}
+                                        onChange={(e) => setQtyToAdd(e.target.value)}
+                                        min="1"
+                                        className="w-16 shadow-sm appearance-none border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                    <span className="text-gray-600">Qty for Add</span>
+                                </div>
+                                <div className="flex mb-4 space-x-2">
+                                    <button
+                                        onClick={clearCart}
+                                        className="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200 ease-in-out"
+                                    >
+                                        Clear Cart
+                                    </button>
+                                </div>
+
+                                <div className="overflow-x-auto flex-1 mb-4">
+                                    <table className="min-w-full bg-white rounded-lg overflow-hidden">
+                                        <thead className="bg-green-100">
+                                            <tr>
+                                                <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">Product</th>
+                                                <th className="py-2 px-4 text-right text-sm font-semibold text-gray-600">Price</th>
+                                                <th className="py-2 px-4 text-right text-sm font-semibold text-gray-600">Qty</th>
+                                                <th className="py-2 px-4 text-right text-sm font-semibold text-gray-600">Total</th>
+                                                <th className="py-2 px-4 text-center text-sm font-semibold text-gray-600"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {Object.keys(cartItems).length === 0 ? (
+                                                <tr>
+                                                    <td colSpan="5" className="text-center py-4 text-gray-500">Cart is empty.</td>
+                                                </tr>
+                                            ) : (
+                                                Object.values(cartItems).map(item => (
+                                                    <tr key={item.product_id} className="border-b border-gray-200 hover:bg-gray-50">
+                                                        <td className="py-2 px-4 text-sm text-gray-800">{item.name}</td>
+                                                        <td className="py-2 px-4 text-right text-sm text-gray-800">{item.price.toFixed(2)}</td>
+                                                        <td className="py-2 px-4 text-right text-sm text-gray-800">{item.qty}</td>
+                                                        <td className="py-2 px-4 text-right text-sm text-gray-800">{item.total.toFixed(2)}</td>
+                                                        <td className="py-2 px-4 text-center">
+                                                            <button
+                                                                onClick={() => removeFromCart(item.product_id)}
+                                                                className="bg-red-400 hover:bg-red-500 text-white text-xs px-2 py-1 rounded-full transition duration-200"
+                                                            >
+                                                                Remove
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            )}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div className="mt-auto pt-4 border-t border-gray-200">
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span className="text-gray-700 font-semibold">Subtotal:</span>
+                                        <span className="text-lg font-bold text-gray-800">KES {subtotal.toFixed(2)}</span>
+                                    </div>
+                                    <div className="flex justify-between items-center mb-4">
+                                        <span className="text-xl font-bold text-blue-700">Total:</span>
+                                        <span className="text-2xl font-extrabold text-blue-700">KES {totalAmount.toFixed(2)}</span>
+                                    </div>
+
+                                    <button
+                                        onClick={() => openCheckoutModal('Cash')}
+                                        className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg mb-2 transition duration-200 ease-in-out"
+                                    >
+                                        Cash Payment
+                                    </button>
+                                    <button
+                                        onClick={() => openCheckoutModal('M-Pesa')}
+                                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg mb-2 transition duration-200 ease-in-out"
+                                    >
+                                        M-Pesa Payment
+                                    </button>
+                                    <button
+                                        onClick={() => openCheckoutModal('Card')}
+                                        className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 ease-in-out"
+                                    >
+                                        Card Payment
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Modals */}
+                        <ProductFormModal
+                            isOpen={isProductModalOpen}
+                            onClose={() => setIsProductModalOpen(false)}
+                            product={editingProduct}
+                            onSave={fetchProducts}
+                            showNotification={showNotification}
+                        />
+
+                        {isCheckoutModalOpen && (
+                            <div className="modal-overlay">
+                                <div className="modal-content bg-white p-6 rounded-lg shadow-xl w-full max-w-sm">
+                                    <h3 className="text-xl font-bold text-center mb-4">Complete {paymentMethod} Payment</h3>
+                                    <p className="text-center text-lg mb-4">Total Amount: <span className="font-bold text-blue-700">KES {totalAmount.toFixed(2)}</span></p>
+                                    <div className="mb-4">
+                                        <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="amountTendered">
+                                            Amount Tendered (KES):
+                                        </label>
+                                        <input
+                                            type="number"
+                                            step="0.01"
+                                            id="amountTendered"
+                                            className="shadow-sm appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            value={amountTendered}
+                                            onChange={(e) => setAmountTendered(e.target.value)}
+                                            onKeyUp={calculateChange}
+                                        />
+                                    </div>
+                                    <p className={`text-center text-lg font-bold mb-4 ${changeDue >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                                        Change Due: KES {changeDue.toFixed(2)}
+                                    </p>
+                                    <div className="flex justify-end gap-2">
+                                        <button
+                                            onClick={() => setIsCheckoutModalOpen(false)}
+                                            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition duration-200 ease-in-out"
+                                        >
+                                            Cancel
+                                        </button>
+                                        <button
+                                            onClick={handleCheckout}
+                                            className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+                                            disabled={changeDue < 0 || totalAmount === 0}
+                                        >
+                                            Complete Sale
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        <ReceiptModal
+                            isOpen={isReceiptModalOpen}
+                            onClose={() => setIsReceiptModalOpen(false)}
+                            details={receiptDetails}
+                            cartItems={cartItems} 
+                            user={user}
+                            subtotal={subtotal}
+                        />
+
+                    </div>
+                );
+            };
+
+            // --- Reports Component ---
+            const ReportsComponent = ({ onBackToPOS, showNotification }) => {
+                const [dailyReportDate, setDailyReportDate] = useState(new Date().toISOString().split('T')[0]);
+                const [dailyReportSummary, setDailyReportSummary] = useState(null);
+                const [salesHistoryStartDate, setSalesHistoryStartDate] = useState(new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
+                const [salesHistoryEndDate, setSalesHistoryEndDate] = useState(new Date().toISOString().split('T')[0]);
+                const [salesHistory, setSalesHistory] = useState([]);
+                const [selectedSaleItems, setSelectedSaleItems] = useState([]);
+                const [topProductsLimit, setTopProductsLimit] = useState(10);
+                const [topProductsStartDate, setTopProductsStartDate] = useState(new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
+                const [topProductsEndDate, setTopProductsEndDate] = useState(new Date().toISOString().split('T')[0]);
+                const [topProducts, setTopProducts] = useState([]);
+
+                useEffect(() => {
+                    console.log('ReportsComponent mounted/re-rendered');
+                    return () => console.log('ReportsComponent unmounted');
+                }, []);
+
+                // Fetch Daily Sales Report
+                const fetchDailySalesReport = async () => {
+                    console.log('fetchDailySalesReport called');
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/reports/daily_sales?date=${dailyReportDate}`);
+                        if (!response.ok) throw new Error('Failed to fetch daily sales report');
+                        const data = await response.json();
+                        console.log('Daily sales report fetched:', data);
+                        setDailyReportSummary(data);
+                        showNotification('Daily sales report generated.', 'success');
+                    } catch (error) {
+                        console.error("Error fetching daily sales:", error);
+                        showNotification('Failed to generate daily sales report.', 'error');
+                        setDailyReportSummary(null);
+                    }
+                };
+
+                // Fetch Sales History
+                const fetchSalesHistory = async () => {
+                    console.log('fetchSalesHistory called');
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/reports/sales_history?start_date=${salesHistoryStartDate}&end_date=${salesHistoryEndDate}`);
+                        if (!response.ok) throw new Error('Failed to fetch sales history');
+                        const data = await response.json();
+                        console.log('Sales history fetched:', data.length);
+                        setSalesHistory(data);
+                        setSelectedSaleItems([]);
+                        showNotification('Sales history loaded.', 'success');
+                    } catch (error) {
+                        console.error("Error fetching sales history:", error);
+                        showNotification('Failed to load sales history.', 'error');
+                        setSalesHistory([]);
+                    }
+                };
+
+                // Fetch Sale Items for a specific sale
+                const fetchSaleItems = async (saleId) => {
+                    console.log(`fetchSaleItems for Sale ID ${saleId} called`);
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/reports/sale_items/${saleId}`);
+                        if (!response.ok) throw new Error('Failed to fetch sale items');
+                        const data = await response.json();
+                        console.log(`Sale items for ${saleId} fetched:`, data.length);
+                        setSelectedSaleItems(data);
+                    } catch (error) {
+                        console.error(`Error fetching sale items for sale ID ${saleId}:`, error);
+                        showNotification('Failed to load sale items.', 'error');
+                        setSelectedSaleItems([]);
+                    }
+                };
+
+                // Fetch Top Selling Products
+                const fetchTopSellingProducts = async () => {
+                    console.log('fetchTopSellingProducts called');
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/reports/top_products?limit=${topProductsLimit}&start_date=${topProductsStartDate}&end_date=${topProductsEndDate}`);
+                        if (!response.ok) throw new Error('Failed to fetch top selling products');
+                        const data = await response.json();
+                        console.log('Top selling products fetched:', data.length);
+                        setTopProducts(data);
+                        showNotification('Top selling products report generated.', 'success');
+                    } catch (error) {
+                        console.error("Error fetching top selling products:", error);
+                        showNotification('Failed to generate top selling products report.', 'error');
+                        setTopProducts([]);
+                    }
+                };
+
+
+                return (
+                    <div className="min-h-screen bg-gray-100 p-6 font-inter flex flex-col">
+                        {/* Header for Reports */}
+                        <header className="bg-white shadow-md p-4 flex justify-between items-center rounded-lg mb-6">
+                            <h1 className="text-xl font-bold text-gray-800">Sales Reports</h1>
+                            <button
+                                onClick={onBackToPOS}
+                                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition duration-200 ease-in-out"
+                            >
+                                Back to POS
+                            </button>
+                        </header>
+
+                        {/* Reports Content - Tabbed Interface */}
+                        <div className="flex-1 bg-white rounded-lg shadow-lg p-6">
+                            <div className="flex border-b border-gray-200 mb-4">
+                                <button
+                                    onClick={() => { /* No specific tab logic yet */ }}
+                                    className="px-4 py-2 text-sm font-medium text-blue-700 border-b-2 border-blue-600 focus:outline-none"
+                                >
+                                    Reports Overview
+                                </button>
+                            </div>
+
+                            {/* Daily Sales Report Section */}
+                            <div className="mb-8 border rounded-lg p-4 bg-blue-50">
+                                <h3 className="text-lg font-semibold mb-3 text-blue-800">Daily Sales Summary</h3>
+                                <div className="flex items-center space-x-2 mb-4">
+                                    <label className="text-gray-700">Select Date:</label>
+                                    <input
+                                        type="date"
+                                        className="shadow-sm appearance-none border rounded-lg py-1 px-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        value={dailyReportDate}
+                                        onChange={(e) => setDailyReportDate(e.target.value)}
+                                    />
+                                    <button
+                                        onClick={fetchDailySalesReport}
+                                        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-200"
+                                    >
+                                        Generate Report
+                                    </button>
+                                </div>
+                                {dailyReportSummary && (
+                                    <div className="bg-white p-4 rounded-md shadow-sm">
+                                        <p className="font-mono text-gray-800">
+                                            <span className="font-semibold">Date:</span> {dailyReportSummary.date}<br/>
+                                            <span className="font-semibold">Total Sales Amount:</span> KES {dailyReportSummary.total_sales_amount?.toFixed(2) || '0.00'}<br/>
+                                            <span className="font-semibold">Number of Sales:</span> {dailyReportSummary.number_of_sales}
+                                        </p>
+                                    </div>
+                                )}
+                                {!dailyReportSummary && <p className="text-gray-600">Generate a report to see daily sales data.</p>}
+                            </div>
+
+                            {/* Sales History Section */}
+                            <div className="mb-8 border rounded-lg p-4 bg-green-50">
+                                <h3 className="text-lg font-semibold mb-3 text-green-800">Sales History</h3>
+                                <div className="flex items-center space-x-2 mb-4">
+                                    <label className="text-gray-700">Start Date:</label>
+                                    <input
+                                        type="date"
+                                        className="shadow-sm appearance-none border rounded-lg py-1 px-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                                        value={salesHistoryStartDate}
+                                        onChange={(e) => setSalesHistoryStartDate(e.target.value)}
+                                    />
+                                    <label className="text-gray-700">End Date:</label>
+                                    <input
+                                        type="date"
+                                        className="shadow-sm appearance-none border rounded-lg py-1 px-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                                        value={salesHistoryEndDate}
+                                        onChange={(e) => setSalesHistoryEndDate(e.target.value)}
+                                    />
+                                    <button
+                                        onClick={fetchSalesHistory}
+                                        className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition duration-200"
+                                    >
+                                        Load History
+                                    </button>
+                                </div>
+                                <div className="overflow-x-auto mb-4">
+                                    <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-sm">
+                                        <thead className="bg-green-100">
+                                            <tr>
+                                                <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">Sale ID</th>
+                                                <th className="py-2 px-4 text-right text-sm font-semibold text-gray-600">Total (KES)</th>
+                                                <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">Method</th>
+                                                <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">Date</th>
+                                                <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">Cashier</th>
+                                                <th className="py-2 px-4 text-center text-sm font-semibold text-gray-600">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {salesHistory.length === 0 ? (
+                                                <tr>
+                                                    <td colSpan="6" className="text-center py-4 text-gray-500">No sales found for this period.</td>
+                                                </tr>
+                                            ) : (
+                                                salesHistory.map(sale => (
+                                                    <tr key={sale.sale_id} className="border-b border-gray-200 hover:bg-gray-50">
+                                                        <td className="py-2 px-4 text-sm text-gray-800">{sale.sale_id}</td>
+                                                        <td className="py-2 px-4 text-right text-sm text-gray-800">{sale.total_amount.toFixed(2)}</td>
+                                                        <td className="py-2 px-4 text-sm text-gray-800">{sale.payment_method}</td>
+                                                        <td className="py-2 px-4 text-sm text-gray-800">{sale.sale_date}</td>
+                                                        <td className="py-2 px-4 text-sm text-gray-800">{sale.cashier_id}</td>
+                                                        <td className="py-2 px-4 text-center">
+                                                            <button
+                                                                onClick={() => fetchSaleItems(sale.sale_id)}
+                                                                className="bg-blue-400 hover:bg-blue-500 text-white text-xs px-2 py-1 rounded-full transition duration-200"
+                                                            >
+                                                                View Items
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            )}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {selectedSaleItems.length > 0 && (
+                                    <div className="mt-4 bg-white p-4 rounded-md shadow-sm">
+                                        <h4 className="font-semibold mb-2">Items for Selected Sale:</h4>
+                                        <pre className="text-sm bg-gray-100 p-2 rounded-md overflow-x-auto font-mono">
+                                            {`Product             Qty  Price   Subtotal\n----------------------------------------\n`}
+                                            {selectedSaleItems.map(item =>
+                                                `${item.product_name.padEnd(18).substring(0, 18)} ${item.quantity.toString().padEnd(5)} ${item.price_at_sale.toFixed(2).padEnd(7)} ${item.subtotal.toFixed(2).padEnd(8)}\n`
+                                            ).join('')}
+                                        </pre>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Top Selling Products Section */}
+                            <div className="border rounded-lg p-4 bg-purple-50">
+                                <h3 className="text-lg font-semibold mb-3 text-purple-800">Top Selling Products</h3>
+                                <div className="flex items-center space-x-2 mb-4">
+                                    <label className="text-gray-700">Limit:</label>
+                                    <input
+                                        type="number"
+                                        className="shadow-sm appearance-none border rounded-lg w-16 py-1 px-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                        value={topProductsLimit}
+                                        onChange={(e) => setTopProductsLimit(parseInt(e.target.value) || 0)}
+                                    />
+                                    <label className="text-gray-700">Start Date:</label>
+                                    <input
+                                        type="date"
+                                        className="shadow-sm appearance-none border rounded-lg py-1 px-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                        value={topProductsStartDate}
+                                        onChange={(e) => setTopProductsStartDate(e.target.value)}
+                                    />
+                                    <label className="text-gray-700">End Date:</label>
+                                    <input
+                                        type="date"
+                                        className="shadow-sm appearance-none border rounded-lg py-1 px-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                        value={topProductsEndDate}
+                                        onChange={(e) => setTopProductsEndDate(e.target.value)}
+                                    />
+                                    <button
+                                        onClick={fetchTopSellingProducts}
+                                        className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition duration-200"
+                                    >
+                                        Generate Report
+                                    </button>
+                                </div>
+                                <div className="overflow-x-auto">
+                                    <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-sm">
+                                        <thead className="bg-purple-100">
+                                            <tr>
+                                                <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">Product Name</th>
+                                                <th className="py-2 px-4 text-right text-sm font-semibold text-gray-600">Units Sold</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {topProducts.length === 0 ? (
+                                                <tr>
+                                                    <td colSpan="2" className="text-center py-4 text-gray-500">No top selling products found for this period.</td>
+                                                </tr>
+                                            ) : (
+                                                topProducts.map((product, index) => (
+                                                    <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                                                        <td className="py-2 px-4 text-sm text-gray-800">{product.product_name}</td>
+                                                        <td className="py-2 px-4 text-right text-sm text-gray-800">{product.units_sold}</td>
+                                                    </tr>
+                                                ))
+                                            )}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                );
+            };
+
+
+            // Main App Render Logic based on current page
+            let content;
+            // Use useMemo to ensure that the component instances are not recreated unnecessarily
+            // when the currentPage changes to the same value
+            content = useMemo(() => {
+                switch (currentPage) {
+                    case 'login':
+                        return <LoginComponent onLoginSuccess={(user) => {
+                            setLoggedInUser(user);
+                            setCurrentPage('pos');
+                        }} showNotification={showNotification} />;
+                    case 'pos':
+                        return <POSAppComponent
+                            user={loggedInUser}
+                            onLogout={() => {
+                                setLoggedInUser(null);
+                                setCurrentPage('login');
+                                showNotification('Logged out successfully.', 'info');
+                            }}
+                            showNotification={showNotification}
+                        />;
+                    case 'reports':
+                        return <ReportsComponent onBackToPOS={() => setCurrentPage('pos')} showNotification={showNotification} />;
+                    default:
+                        return <LoginComponent onLoginSuccess={(user) => {
+                            setLoggedInUser(user);
+                            setCurrentPage('pos');
+                        }} showNotification={showNotification} />;
+                }
+            }, [currentPage, loggedInUser, showNotification]);
+
+
+            return (
+                <div className="relative">
+                    {/* Notification Bar */}
+                    {notification.message && (
+                        <div
+                            className={`fixed top-0 left-1/2 -translate-x-1/2 mt-4 px-6 py-3 rounded-lg shadow-md text-white z-50 transition-all duration-300 ease-in-out
+                                ${notification.type === 'success' ? 'bg-green-500' :
+                                notification.type === 'error' ? 'bg-red-500' :
+                                notification.type === 'warning' ? 'bg-yellow-500' : 'bg-gray-700'}
+                            `}
+                        >
+                            {notification.message}
+                        </div>
+                    )}
+                    {content}
+                </div>
+            );
+        };
+
+        // Render the App component into the 'root' div
+        const domNode = document.getElementById('root');
+        const root = createRoot(domNode);
+        root.render(<App />);
+
+    </script>
+</body>
+</html>
